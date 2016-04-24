@@ -1,6 +1,5 @@
 package cz.mendelu.seminar.swi2.bodycare.dao;
 
-import cz.mendelu.swi2.bodycare.domain.Sklad;
 
 import java.util.List;
 
