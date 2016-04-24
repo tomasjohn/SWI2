@@ -1,4 +1,4 @@
-package cz.mendelu.seminar.swi2.bodycare.dao;
+package cz.mendelu.seminar.swi2.bodycare.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
