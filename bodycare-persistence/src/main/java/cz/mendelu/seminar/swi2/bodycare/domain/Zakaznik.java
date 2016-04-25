@@ -60,7 +60,9 @@ public class Zakaznik {
             return false;
         if (getAdresa() != null ? !getAdresa().equals(zakaznik.getAdresa()) : zakaznik.getAdresa() != null)
             return false;
+        
 
+        return true;
     }
 
     @Override

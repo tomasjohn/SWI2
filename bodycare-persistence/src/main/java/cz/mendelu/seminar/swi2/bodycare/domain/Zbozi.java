@@ -72,13 +72,13 @@ public class Zbozi {
 
         Zbozi zbozi = (Zbozi) o;
 
-        if (getCena() != Zbozi.getCena()) return false;
-        if (getDan() != Zbozi.getDan()) return false;
-        if (getNazev() != null ? !getNazev().equals(Zbozi.getNazev()) : Zbozi.getNazev() != null)
+        if (getCena() != zbozi.getCena()) return false;
+        if (getDan() != zbozi.getDan()) return false;
+        if (getNazev() != null ? !getNazev().equals(zbozi.getNazev()) : zbozi.getNazev() != null)
             return false;
-        if (getZnacka() != null ? !getZnacka().equals(Zbozi.getZnacka()) : Zbozi.getZnacka() != null)
+        if (getZnacka() != null ? !getZnacka().equals(zbozi.getZnacka()) : zbozi.getZnacka() != null)
             return false;
-
+        return true;
     }
 
     @Override
