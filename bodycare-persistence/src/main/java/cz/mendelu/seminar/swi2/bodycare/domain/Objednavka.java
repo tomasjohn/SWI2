@@ -15,7 +15,7 @@ public class Objednavka {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 	
-	@NotNull
+    @NotNull
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Zbozi> zbozi = new HashSet<>();
 	
@@ -34,7 +34,8 @@ public class Objednavka {
         return id;
     }
 
-	public String getZakaznik() {
+	
+    public Zakaznik getZakaznik() {
         return zakaznik;
     }
     public void setZakaznik(Zakaznik zakaznik) {

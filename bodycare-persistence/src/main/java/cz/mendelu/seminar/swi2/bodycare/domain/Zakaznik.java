@@ -16,6 +16,12 @@ public class Zakaznik {
 
     @Column()
     private String adresa;
+    
+    @Column()
+    private int cena;
+    
+    @Column()
+    private int dan;
 
     public Zakaznik(int cena, int dan, String jmeno,String adresa) {
         this.cena = cena;
@@ -60,7 +66,6 @@ public class Zakaznik {
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + (get() != null ? getJmeno().hashCode() : 0);
         result = 31 * result + (getAdresa() != null ? getAdresa().hashCode() : 0);
         return result;
     }
