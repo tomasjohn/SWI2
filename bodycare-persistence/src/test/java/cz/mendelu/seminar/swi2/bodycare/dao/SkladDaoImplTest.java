@@ -1,38 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.mendelu.seminar.swi2.bodycare.dao;
 
 import cz.mendelu.seminar.swi2.bodycare.domain.Sklad;
+import cz.mendelu.seminar.swi2.bodycare.utils.EmbeddedDerbyDatabase;
 import java.util.List;
+
+import java.sql.Date;
+import javax.inject.Inject;
 import org.junit.After;
 import org.junit.AfterClass;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+import org.springframework.transaction.annotation.Transactional;
+import org.testng.annotations.Test;
+
+
+
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.testng.annotations.BeforeMethod;
 
 /**
- *
- * @author jakub
+ * @author Zuzana Goldmannova
  */
-public class SkladDaoImplTest {
+@ContextConfiguration(classes = EmbeddedDerbyDatabase.class)
+@TestExecutionListeners(TransactionalTestExecutionListener.class)
+@Transactional
+public class SkladDaoImplTest extends AbstractTestNGSpringContextTests {
+
+    @Inject
+    private SkladDao skladDao;
+    
+    private Sklad testSklad;
     
     public SkladDaoImplTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
+    @BeforeMethod
     public void setUp() {
+        testSklad = new Sklad("Centralni");
+        skladDao.save(testSklad);
     }
     
     @After
@@ -58,12 +69,7 @@ public class SkladDaoImplTest {
      */
     @Test
     public void testSave() {
-        System.out.println("save");
-        
-        Sklad sklad = new Sklad("Centralni");
-        SkladDaoImpl instance = new SkladDaoImpl();
-        instance.save(sklad);
-        assertEquals(1, instance.findAll().size());
+        assertEquals(1, skladDao.findAll().size());
     }
 
     /**
@@ -71,12 +77,11 @@ public class SkladDaoImplTest {
      */
     @Test
     public void testDelete() {
-        System.out.println("delete");        
+        /*System.out.println("delete");        
         Sklad sklad = new Sklad("Centralni");
-        SkladDaoImpl instance = new SkladDaoImpl();
-        instance.save(sklad);
-        instance.delete(sklad);
-        assertEquals(0, instance.findAll().size());
+        SkladDaoImpl instance = new SkladDaoImpl();*/
+        skladDao.delete(testSklad);
+        assertEquals(0, skladDao.findAll().size());
     }
 
     /**

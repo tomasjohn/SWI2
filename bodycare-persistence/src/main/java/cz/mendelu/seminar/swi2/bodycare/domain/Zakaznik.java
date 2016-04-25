@@ -29,7 +29,7 @@ public class Zakaznik {
         this.jmeno = jmeno;
         this.adresa = adresa;
     }
-
+    
     protected Zakaznik() {
     }
 
