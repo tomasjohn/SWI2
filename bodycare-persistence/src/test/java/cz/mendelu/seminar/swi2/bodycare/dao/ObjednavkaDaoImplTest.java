@@ -87,9 +87,8 @@ public class ObjednavkaDaoImplTest {
     public void testFindAll() {
         System.out.println("findAll");
         ObjednavkaDaoImpl instance = new ObjednavkaDaoImpl();
-        List<Objednavka> expResult = null;
         List<Objednavka> result = instance.findAll();
-        assertEquals(expResult, result);
+        assertEquals(result.size(), 1);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
