@@ -5,7 +5,7 @@
  */
 package cz.mendelu.seminar.swi2.bodycare.dao;
 
-import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
+import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,11 +16,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author TJ
+ * @author jakub
  */
-public class ZboziDaoTest {
+public class ObjednavkaDaoImplTest {
     
-    public ZboziDaoTest() {
+    public ObjednavkaDaoImplTest() {
     }
     
     @BeforeClass
@@ -40,75 +40,58 @@ public class ZboziDaoTest {
     }
 
     /**
-     * Test of findById method, of class ZboziDao.
+     * Test of findById method, of class ObjednavkaDaoImpl.
      */
     @Test
     public void testFindById() {
         System.out.println("findById");
         int id = 0;
-        ZboziDao instance = new ZboziDaoImpl();
-        Zbozi expResult = null;
-        Zbozi result = instance.findById(id);
+        ObjednavkaDaoImpl instance = new ObjednavkaDaoImpl();
+        Objednavka expResult = null;
+        Objednavka result = instance.findById(id);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of save method, of class ZboziDao.
+     * Test of save method, of class ObjednavkaDaoImpl.
      */
     @Test
     public void testSave() {
         System.out.println("save");
-        Zbozi zbozi = null;
-        ZboziDao instance = new ZboziDaoImpl();
-        instance.save(zbozi);
+        Objednavka objednavka = null;
+        ObjednavkaDaoImpl instance = new ObjednavkaDaoImpl();
+        instance.save(objednavka);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of delete method, of class ZboziDao.
+     * Test of delete method, of class ObjednavkaDaoImpl.
      */
     @Test
     public void testDelete() {
         System.out.println("delete");
-        Zbozi zbozi = null;
-        ZboziDao instance = new ZboziDaoImpl();
-        instance.delete(zbozi);
+        Objednavka objednavka = null;
+        ObjednavkaDaoImpl instance = new ObjednavkaDaoImpl();
+        instance.delete(objednavka);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of findAll method, of class ZboziDao.
+     * Test of findAll method, of class ObjednavkaDaoImpl.
      */
     @Test
     public void testFindAll() {
         System.out.println("findAll");
-        ZboziDao instance = new ZboziDaoImpl();
-        List<Zbozi> expResult = null;
-        List<Zbozi> result = instance.findAll();
+        ObjednavkaDaoImpl instance = new ObjednavkaDaoImpl();
+        List<Objednavka> expResult = null;
+        List<Objednavka> result = instance.findAll();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
-
-    public class ZboziDaoImpl implements ZboziDao {
-
-        public Zbozi findById(int id) {
-            return null;
-        }
-
-        public void save(Zbozi zbozi) {
-        }
-
-        public void delete(Zbozi zbozi) {
-        }
-
-        public List<Zbozi> findAll() {
-            return null;
-        }
     }
     
 }

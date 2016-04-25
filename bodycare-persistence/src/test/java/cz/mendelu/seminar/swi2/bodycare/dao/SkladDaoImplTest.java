@@ -16,11 +16,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author TJ
+ * @author jakub
  */
-public class SkladDaoTest {
+public class SkladDaoImplTest {
     
-    public SkladDaoTest() {
+    public SkladDaoImplTest() {
     }
     
     @BeforeClass
@@ -40,13 +40,13 @@ public class SkladDaoTest {
     }
 
     /**
-     * Test of findById method, of class SkladDao.
+     * Test of findById method, of class SkladDaoImpl.
      */
     @Test
     public void testFindById() {
         System.out.println("findById");
         int id = 0;
-        SkladDao instance = new SkladDaoImpl();
+        SkladDaoImpl instance = new SkladDaoImpl();
         Sklad expResult = null;
         Sklad result = instance.findById(id);
         assertEquals(expResult, result);
@@ -55,60 +55,43 @@ public class SkladDaoTest {
     }
 
     /**
-     * Test of save method, of class SkladDao.
+     * Test of save method, of class SkladDaoImpl.
      */
     @Test
     public void testSave() {
         System.out.println("save");
         Sklad sklad = null;
-        SkladDao instance = new SkladDaoImpl();
+        SkladDaoImpl instance = new SkladDaoImpl();
         instance.save(sklad);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of delete method, of class SkladDao.
+     * Test of delete method, of class SkladDaoImpl.
      */
     @Test
     public void testDelete() {
         System.out.println("delete");
         Sklad sklad = null;
-        SkladDao instance = new SkladDaoImpl();
+        SkladDaoImpl instance = new SkladDaoImpl();
         instance.delete(sklad);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of findAll method, of class SkladDao.
+     * Test of findAll method, of class SkladDaoImpl.
      */
     @Test
     public void testFindAll() {
         System.out.println("findAll");
-        SkladDao instance = new SkladDaoImpl();
+        SkladDaoImpl instance = new SkladDaoImpl();
         List<Sklad> expResult = null;
         List<Sklad> result = instance.findAll();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
-
-    public class SkladDaoImpl implements SkladDao {
-
-        public Sklad findById(int id) {
-            return null;
-        }
-
-        public void save(Sklad sklad) {
-        }
-
-        public void delete(Sklad sklad) {
-        }
-
-        public List<Sklad> findAll() {
-            return null;
-        }
     }
     
 }
