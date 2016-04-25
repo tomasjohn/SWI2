@@ -8,6 +8,7 @@ package cz.mendelu.seminar.swi2.bodycare.service;
 import cz.mendelu.seminar.swi2.bodycare.dao.ObjednavkaDao;
 import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
+import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,10 @@ public class ObjednavkaServiceImpl implements ObjednavkaService {
     @Override
     public void delete(Objednavka objednavka) {
         objednavkaDao.delete(objednavka);
+    }
+
+    @Override
+    public void addZbozi(Zbozi zbozi) {
     }
 
     @Override
