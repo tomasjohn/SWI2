@@ -23,18 +23,18 @@ public class ObjednavkaServiceImpl implements ObjednavkaService {
     private ObjednavkaDao objednavkaDao;
 
     @Override
+    public void createObjednavka(Objednavka objednavka) {
+        objednavkaDao.save(objednavka);
+    }
+
+    @Override
     public Objednavka findById(int id) {
         return objednavkaDao.findById(id);
     }
 
     @Override
-    public void createObjednavka(Objednavka objednavka) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public List<Objednavka> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return objednavkaDao.findAll();
     }
 
     @Override
@@ -44,7 +44,23 @@ public class ObjednavkaServiceImpl implements ObjednavkaService {
 
     @Override
     public List<Objednavka> getAllObjednavkaByZakaznik(Zakaznik zakaznik) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (zakaznik == null) {
+            throw new NullPointerException("Zakaznik is null.");
+        }
+
+        List<Objednavka> objednavkas = objednavkaDao.findAll();
+        if (objednavkas.isEmpty() || objednavkas == null) {
+            throw new NullPointerException("List of Objednavkas is empty or null.");
+        }
+        
+        List<Objednavka> result = new ArrayList<>();
+        for (Objednavka o : objednavkas) {
+            if (o.getZakaznik().equals(zakaznik)) {
+                result.add(o);
+            }
+        }
+
+        return result;
     }
 
-}
+} 

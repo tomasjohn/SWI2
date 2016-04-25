@@ -24,8 +24,8 @@ public class Sklad {
     public int getId() {
         return id;
     }
-	
-	public String getNazev() {
+    
+    public String getNazev() {
         return nazev;
     }
     public void setNazev(String nazev) {
