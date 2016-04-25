@@ -50,8 +50,6 @@ public class ZakaznikDaoImplTest {
         Zakaznik expResult = null;
         Zakaznik result = instance.findById(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -63,8 +61,6 @@ public class ZakaznikDaoImplTest {
         Zakaznik zakaznik = null;
         ZakaznikDaoImpl instance = new ZakaznikDaoImpl();
         instance.save(zakaznik);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -76,8 +72,6 @@ public class ZakaznikDaoImplTest {
         Zakaznik zakaznik = null;
         ZakaznikDaoImpl instance = new ZakaznikDaoImpl();
         instance.delete(zakaznik);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -90,8 +84,6 @@ public class ZakaznikDaoImplTest {
         List<Zakaznik> expResult = null;
         List<Zakaznik> result = instance.findAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

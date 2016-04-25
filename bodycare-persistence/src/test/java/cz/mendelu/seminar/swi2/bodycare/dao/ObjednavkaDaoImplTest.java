@@ -50,8 +50,6 @@ public class ObjednavkaDaoImplTest {
         Objednavka expResult = null;
         Objednavka result = instance.findById(id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -63,8 +61,8 @@ public class ObjednavkaDaoImplTest {
         Objednavka objednavka = null;
         ObjednavkaDaoImpl instance = new ObjednavkaDaoImpl();
         instance.save(objednavka);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        
     }
 
     /**
@@ -76,8 +74,6 @@ public class ObjednavkaDaoImplTest {
         Objednavka objednavka = null;
         ObjednavkaDaoImpl instance = new ObjednavkaDaoImpl();
         instance.delete(objednavka);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -89,8 +85,6 @@ public class ObjednavkaDaoImplTest {
         ObjednavkaDaoImpl instance = new ObjednavkaDaoImpl();
         List<Objednavka> result = instance.findAll();
         assertEquals(result.size(), 1);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
