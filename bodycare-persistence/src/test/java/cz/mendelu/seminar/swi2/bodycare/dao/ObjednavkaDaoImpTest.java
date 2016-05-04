@@ -1,22 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package cz.mendelu.seminar.swi2.bodycare.dao;
-
 
 import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
 import cz.mendelu.seminar.swi2.bodycare.utils.EmbeddedDerbyDatabase;
-import java.util.List;
 
-import java.sql.Date;
-import javax.inject.Inject;
 import org.junit.After;
-import org.junit.AfterClass;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
@@ -24,13 +12,9 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
 import org.testng.annotations.Test;
-
-
+import org.testng.annotations.BeforeMethod;
 
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -70,7 +54,6 @@ public class ObjednavkaDaoImpTest extends AbstractTestNGSpringContextTests {
      */
     @Test
     public void testFindById() { 
-        System.out.println("testDindById");
         int id = testObjednavka.getId();
         Objednavka result = objednavkaDao.findById(id);
         assertEquals(testObjednavka.getId(), result.getId());
@@ -98,7 +81,6 @@ public class ObjednavkaDaoImpTest extends AbstractTestNGSpringContextTests {
      */
     @Test
     public void testFindAll() {
-        System.out.println("findAll");
         Objednavka objedn1 = new Objednavka(new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno"));
         Objednavka objedn2 = new Objednavka(new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno"));
         objednavkaDao.save(objedn1);

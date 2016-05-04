@@ -1,14 +1,8 @@
 package cz.mendelu.seminar.swi2.bodycare.dao;
-
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
 import cz.mendelu.seminar.swi2.bodycare.utils.EmbeddedDerbyDatabase;
-import java.util.List;
 
-import java.sql.Date;
-import javax.inject.Inject;
 import org.junit.After;
-import org.junit.AfterClass;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
@@ -16,13 +10,9 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
 import org.testng.annotations.Test;
-
-
+import org.testng.annotations.BeforeMethod;
 
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -63,7 +53,6 @@ public class ZakaznikDaoImplTest extends AbstractTestNGSpringContextTests {
      */
     @Test
     public void testFindById() { 
-        System.out.println("testDindById");
         int id = testZakaznik.getId();
         Zakaznik result = zakaznikDao.findById(id);
         assertEquals(testZakaznik.getId(), result.getId());
@@ -91,7 +80,6 @@ public class ZakaznikDaoImplTest extends AbstractTestNGSpringContextTests {
      */
     @Test
     public void testFindAll() {
-        System.out.println("findAll");
         Zakaznik zakaznik1 = new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno");
         Zakaznik zakaznik2 = new Zakaznik(10,"Centralni","Listova 5, Brno");
         zakaznikDao.save(zakaznik1);

@@ -1,14 +1,8 @@
 package cz.mendelu.seminar.swi2.bodycare.dao;
-
 import cz.mendelu.seminar.swi2.bodycare.domain.Sklad;
 import cz.mendelu.seminar.swi2.bodycare.utils.EmbeddedDerbyDatabase;
-import java.util.List;
 
-import java.sql.Date;
-import javax.inject.Inject;
 import org.junit.After;
-import org.junit.AfterClass;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
@@ -16,13 +10,9 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
 import org.testng.annotations.Test;
-
-
+import org.testng.annotations.BeforeMethod;
 
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 /**
  * @author Zuzana Goldmannova
@@ -55,7 +45,6 @@ public class SkladDaoImplTest extends AbstractTestNGSpringContextTests {
      */
     @Test
     public void testFindById() {
-        System.out.println("testDindById");
         int id = testSklad.getId();
         Sklad result = skladDao.findById(id);
         assertEquals(testSklad.getId(), result.getId());
@@ -86,7 +75,6 @@ public class SkladDaoImplTest extends AbstractTestNGSpringContextTests {
      */
     @Test
     public void testFindAll() {
-        System.out.println("findAll");
         Sklad sklad = new Sklad("Centralni");
         Sklad sklad2 = new Sklad("Centralni2");
         skladDao.save(sklad);

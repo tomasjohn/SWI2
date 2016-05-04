@@ -1,14 +1,9 @@
 package cz.mendelu.seminar.swi2.bodycare.dao;
-
 import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 import cz.mendelu.seminar.swi2.bodycare.utils.EmbeddedDerbyDatabase;
-import java.util.List;
 
-import java.sql.Date;
-import javax.inject.Inject;
 import org.junit.After;
 import org.junit.AfterClass;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
@@ -16,13 +11,10 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
 import org.testng.annotations.Test;
-
-
-
-import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+
+import static org.junit.Assert.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -72,10 +64,29 @@ public class ZboziDaoImplTest extends AbstractTestNGSpringContextTests {
      */
     @Test
     public void testFindById() {
-        System.out.println("testDindById");
         int id = testZbozi.getId();
         Zbozi result = zboziDao.findById(id);
         assertEquals(testZbozi.getId(), result.getId());
+    }
+    
+    /**
+     * Test of findById method, of class ZboziDaoImpl.
+     */
+    @Test
+    public void testFindByNazev() {
+        String znacka = testZbozi.getNazev();
+        Zbozi result = zboziDao.findByNazev(znacka);
+        assertEquals(testZbozi.getNazev(), result.getNazev());
+    }
+    
+    /**
+     * Test of findById method, of class ZboziDaoImpl.
+     */
+    @Test
+    public void testFindByZnacka() {
+        String znacka = testZbozi.getZnacka();
+        Zbozi result = zboziDao.findByZnacka(znacka);
+        assertEquals(testZbozi.getZnacka(), result.getZnacka());
     }
 
     /**
@@ -100,7 +111,6 @@ public class ZboziDaoImplTest extends AbstractTestNGSpringContextTests {
      */
     @Test
     public void testFindAll() {
-        System.out.println("findAll");
         Zbozi zbozi1 = new Zbozi(10, 20, "Zbozi1", "Znacka1");
         Zbozi zbozi2 = new Zbozi(10, 20, "Zbozi2", "Znacka2");
         zboziDao.save(zbozi1);
