@@ -20,7 +20,7 @@ public class Zakaznik {
     @Column()
     private int zakanicka_sleva;
 
-    public Zakaznik(int sleva, String jmeno,String adresa) {
+    public Zakaznik(int sleva, String jmeno, String adresa) {
         this.zakanicka_sleva = sleva;
         this.jmeno = jmeno;
         this.adresa = adresa;
