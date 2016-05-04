@@ -42,5 +42,6 @@
 
     <modules>
         <module>bodycare-persistence</module>
+        <module>bodycare-service</module>
     </modules>
 </project>

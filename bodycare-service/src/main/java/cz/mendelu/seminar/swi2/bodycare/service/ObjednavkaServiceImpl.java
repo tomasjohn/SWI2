@@ -9,6 +9,7 @@ import cz.mendelu.seminar.swi2.bodycare.dao.ObjednavkaDao;
 import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import javax.inject.Inject;
  *
  * @author XSTRATI6
  */
+@Service
 public class ObjednavkaServiceImpl implements ObjednavkaService {
 
     @Inject

@@ -7,12 +7,8 @@
     <artifactId>bodycare-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <groupId>cz.mendelu.seminar.swi2.bodycare</groupId>
+    
     <artifactId>bodycare-persistence</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <name>DAO Layer</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
