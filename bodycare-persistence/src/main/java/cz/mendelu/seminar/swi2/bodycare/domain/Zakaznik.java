@@ -18,14 +18,10 @@ public class Zakaznik {
     private String adresa;
     
     @Column()
-    private int cena;
-    
-    @Column()
-    private int dan;
+    private int zakanicka_sleva;
 
-    public Zakaznik(int cena, int dan, String jmeno,String adresa) {
-        this.cena = cena;
-        this.dan = dan;
+    public Zakaznik(int sleva, String jmeno,String adresa) {
+        this.zakanicka_sleva = sleva;
         this.jmeno = jmeno;
         this.adresa = adresa;
     }
@@ -36,19 +32,27 @@ public class Zakaznik {
     public int getId() {
         return id;
     }
-	public String getJmeno() {
+    
+    public String getJmeno() {
         return jmeno;
     }
     public void setJmeno(String jmeno) {
         this.jmeno = jmeno;
     }	
 	
-	public String getAdresa() {
+    public String getAdresa() {
         return adresa;
     }
     public void setAdresa(String adresa) {
         this.adresa = adresa;
     }	
+        
+    public int getSleva() {
+        return zakanicka_sleva;
+    }
+    public void setSleva(int sleva) {
+        this.zakanicka_sleva = sleva;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,9 +63,9 @@ public class Zakaznik {
         if (getJmeno() != null ? !getJmeno().equals(zakaznik.getJmeno()) : zakaznik.getJmeno() != null)
             return false;
         if (getAdresa() != null ? !getAdresa().equals(zakaznik.getAdresa()) : zakaznik.getAdresa() != null)
-            return false;
+            return false; 
         
-
+        
         return true;
     }
 

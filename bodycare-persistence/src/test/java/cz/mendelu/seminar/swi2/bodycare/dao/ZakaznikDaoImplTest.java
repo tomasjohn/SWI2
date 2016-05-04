@@ -1,6 +1,10 @@
+
+
+
 package cz.mendelu.seminar.swi2.bodycare.dao;
 
 import cz.mendelu.seminar.swi2.bodycare.domain.Sklad;
+import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
 import cz.mendelu.seminar.swi2.bodycare.utils.EmbeddedDerbyDatabase;
 import java.util.List;
 
@@ -24,26 +28,34 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-/**
- * @author Zuzana Goldmannova
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+
+/**
+ *
+ * @author xjohn
+ */
+
 @ContextConfiguration(classes = EmbeddedDerbyDatabase.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
-public class SkladDaoImplTest extends AbstractTestNGSpringContextTests {
+public class ZakaznikDaoImplTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
-    private SkladDao skladDao;
+    private ZakaznikDao zakaznikDao;
     
-    private Sklad testSklad;
+    private Zakaznik testZakaznik;
     
-    public SkladDaoImplTest() {
+    public ZakaznikDaoImplTest() {
     }
     
     @BeforeMethod
     public void setUp() {
-        testSklad = new Sklad("Centralni");
-        skladDao.save(testSklad);
+        testZakaznik = new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno");
+        zakaznikDao.save(testZakaznik);
     }
     
     @After
@@ -51,48 +63,44 @@ public class SkladDaoImplTest extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * Test of findById method, of class SkladDaoImpl.
+     * Test of findById method, of class ZakaznikDaoImpl.
      */
     @Test
-    public void testFindById() {
+    public void testFindById() { 
         System.out.println("testDindById");
-        int id = testSklad.getId();
-        Sklad result = skladDao.findById(id);
-        assertEquals(testSklad.getId(), result.getId());
+        int id = testZakaznik.getId();
+        Zakaznik result = zakaznikDao.findById(id);
+        assertEquals(testZakaznik.getId(), result.getId());
     }
 
     /**
-     * Test of save method, of class SkladDaoImpl.
+     * Test of save method, of class ZakaznikDaoImpl.
      */
     @Test
     public void testSave() {
-        assertEquals(1, skladDao.findAll().size());
+        assertEquals(1, zakaznikDao.findAll().size());
     }
 
     /**
-     * Test of delete method, of class SkladDaoImpl.
+     * Test of delete method, of class ZakaznikDaoImpl.
      */
     @Test
     public void testDelete() {
-        /*System.out.println("delete");        
-        Sklad sklad = new Sklad("Centralni");
-        SkladDaoImpl instance = new SkladDaoImpl();*/
-        skladDao.delete(testSklad);
-        assertEquals(0, skladDao.findAll().size());
+        zakaznikDao.delete(testZakaznik);
+        assertEquals(0, zakaznikDao.findAll().size());
     }
 
     /**
-     * Test of findAll method, of class SkladDaoImpl.
+     * Test of findAll method, of class ZakaznikDaoImpl.
      */
     @Test
     public void testFindAll() {
         System.out.println("findAll");
-        Sklad sklad = new Sklad("Centralni");
-        Sklad sklad2 = new Sklad("Centralni2");
-        skladDao.save(sklad);
-        skladDao.save(sklad2);
-        
-        assertEquals(skladDao.findAll().size(), 3);
+        Zakaznik zakaznik1 = new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno");
+        Zakaznik zakaznik2 = new Zakaznik(10,"Centralni","Listova 5, Brno");
+        zakaznikDao.save(zakaznik1);
+        zakaznikDao.save(zakaznik2);
+        assertEquals(zakaznikDao.findAll().size(), 3);
     }
     
 }
