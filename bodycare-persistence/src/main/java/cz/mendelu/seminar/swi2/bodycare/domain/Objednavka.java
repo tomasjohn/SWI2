@@ -23,7 +23,8 @@ public class Objednavka {
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ZAKAZNIK_ID")
     private Zakaznik zakaznik;
-
+      
+    
     public Objednavka(Zakaznik zakaznik) {
         this.zakaznik = zakaznik;
     }

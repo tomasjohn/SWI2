@@ -1,33 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.mendelu.seminar.swi2.bodycare.dao;
 
 import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 import cz.mendelu.seminar.swi2.bodycare.utils.EmbeddedDerbyDatabase;
+import java.util.List;
+
+import java.sql.Date;
+import javax.inject.Inject;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
+import org.testng.annotations.Test;
+
+
+
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 
 /**
  *
- * @author jakub
+ * @author xjohn
  */
+
 @ContextConfiguration(classes = EmbeddedDerbyDatabase.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
-
 public class ZboziDaoImplTest extends AbstractTestNGSpringContextTests {
     
     @Autowired

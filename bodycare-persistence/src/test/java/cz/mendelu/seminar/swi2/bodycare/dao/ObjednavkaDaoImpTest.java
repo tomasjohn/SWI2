@@ -1,5 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package cz.mendelu.seminar.swi2.bodycare.dao;
 
+
+import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
 import cz.mendelu.seminar.swi2.bodycare.utils.EmbeddedDerbyDatabase;
 import java.util.List;
@@ -38,20 +46,19 @@ import org.testng.annotations.BeforeMethod;
 @ContextConfiguration(classes = EmbeddedDerbyDatabase.class)
 @TestExecutionListeners(TransactionalTestExecutionListener.class)
 @Transactional
-public class ZakaznikDaoImplTest extends AbstractTestNGSpringContextTests {
+public class ObjednavkaDaoImpTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
-    private ZakaznikDao zakaznikDao;
+    private ObjednavkaDao objednavkaDao;
+    private Objednavka testObjednavka;
     
-    private Zakaznik testZakaznik;
-    
-    public ZakaznikDaoImplTest() {
+    public ObjednavkaDaoImpTest() {
     }
     
     @BeforeMethod
     public void setUp() {
-        testZakaznik = new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno");
-        zakaznikDao.save(testZakaznik);
+        testObjednavka = new Objednavka(new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno"));
+        objednavkaDao.save(testObjednavka);
     }
     
     @After
@@ -59,44 +66,44 @@ public class ZakaznikDaoImplTest extends AbstractTestNGSpringContextTests {
     }
 
     /**
-     * Test of findById method, of class ZakaznikDaoImpl.
+     * Test of findById method, of class ObjednavkaDaoImpl.
      */
     @Test
     public void testFindById() { 
         System.out.println("testDindById");
-        int id = testZakaznik.getId();
-        Zakaznik result = zakaznikDao.findById(id);
-        assertEquals(testZakaznik.getId(), result.getId());
+        int id = testObjednavka.getId();
+        Objednavka result = objednavkaDao.findById(id);
+        assertEquals(testObjednavka.getId(), result.getId());
     }
 
     /**
-     * Test of save method, of class ZakaznikDaoImpl.
+     * Test of save method, of class ObjednavkaDaoImpl.
      */
     @Test
     public void testSave() {
-        assertEquals(1, zakaznikDao.findAll().size());
+        assertEquals(1, objednavkaDao.findAll().size());
     }
 
     /**
-     * Test of delete method, of class ZakaznikDaoImpl.
+     * Test of delete method, of class ObjednavkaDaoImpl.
      */
     @Test
     public void testDelete() {
-        zakaznikDao.delete(testZakaznik);
-        assertEquals(0, zakaznikDao.findAll().size());
+        objednavkaDao.delete(testObjednavka);
+        assertEquals(0, objednavkaDao.findAll().size());
     }
 
     /**
-     * Test of findAll method, of class ZakaznikDaoImpl.
+     * Test of findAll method, of class ObjednavkaDaoImpl.
      */
     @Test
     public void testFindAll() {
         System.out.println("findAll");
-        Zakaznik zakaznik1 = new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno");
-        Zakaznik zakaznik2 = new Zakaznik(10,"Centralni","Listova 5, Brno");
-        zakaznikDao.save(zakaznik1);
-        zakaznikDao.save(zakaznik2);
-        assertEquals(zakaznikDao.findAll().size(), 3);
+        Objednavka objedn1 = new Objednavka(new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno"));
+        Objednavka objedn2 = new Objednavka(new Zakaznik(0, "František Dobrota", "Lesnická 15, Brno"));
+        objednavkaDao.save(objedn1);
+        objednavkaDao.save(objedn2);
+        assertEquals(objednavkaDao.findAll().size(), 3);
     }
     
 }

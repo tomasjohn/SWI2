@@ -14,7 +14,7 @@ public class Zbozi {
     @Column(nullable = false)
     private int cena;
     
-	@NotNull
+    @NotNull
     @Column(nullable = false)
     private int dan;
 	
