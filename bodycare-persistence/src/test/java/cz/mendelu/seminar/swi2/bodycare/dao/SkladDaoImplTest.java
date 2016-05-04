@@ -32,7 +32,7 @@ import org.testng.annotations.BeforeMethod;
 @Transactional
 public class SkladDaoImplTest extends AbstractTestNGSpringContextTests {
 
-    @Inject
+    @Autowired
     private SkladDao skladDao;
     
     private Sklad testSklad;
@@ -91,10 +91,11 @@ public class SkladDaoImplTest extends AbstractTestNGSpringContextTests {
     public void testFindAll() {
         System.out.println("findAll");
         Sklad sklad = new Sklad("Centralni");
-        SkladDaoImpl instance = new SkladDaoImpl();
-        instance.save(sklad);
-        List<Sklad> result = instance.findAll();
-        assertEquals(result.size(), 1);
+        Sklad sklad2 = new Sklad("Centralni2");
+        skladDao.save(sklad);
+        skladDao.save(sklad2);
+        
+        assertEquals(skladDao.findAll().size(), 3);
     }
     
 }

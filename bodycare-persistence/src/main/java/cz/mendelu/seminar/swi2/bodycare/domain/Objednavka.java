@@ -20,7 +20,8 @@ public class Objednavka {
     private Set<Zbozi> zbozi = new HashSet<>();
 	
     @NotNull
-    @Column(nullable = false)
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "ZAKAZNIK_ID")
     private Zakaznik zakaznik;
 
     public Objednavka(Zakaznik zakaznik) {
