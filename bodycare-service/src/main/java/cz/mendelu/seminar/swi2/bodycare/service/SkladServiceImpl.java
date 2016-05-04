@@ -7,6 +7,7 @@ package cz.mendelu.seminar.swi2.bodycare.service;
 
 import cz.mendelu.seminar.swi2.bodycare.dao.SkladDao;
 import cz.mendelu.seminar.swi2.bodycare.domain.Sklad;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import javax.inject.Inject;
@@ -15,13 +16,14 @@ import javax.inject.Inject;
  *
  * @author XSTRATI6
  */
+@Service
 public class SkladServiceImpl implements SkladService {
 
     @Inject
     private SkladDao skladDao;
 
     @Override
-    public void createSklad(Sklad sklad) {
+    public void create(Sklad sklad) {
         skladDao.save(sklad);
     }
 

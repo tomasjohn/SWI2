@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface SkladService {
 
-    void createSklad(Sklad sklad);
+    void create(Sklad sklad);
 
     Sklad findById(int id);
 

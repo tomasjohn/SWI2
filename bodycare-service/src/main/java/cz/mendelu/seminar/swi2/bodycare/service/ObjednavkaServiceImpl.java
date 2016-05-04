@@ -9,6 +9,7 @@ import cz.mendelu.seminar.swi2.bodycare.dao.ObjednavkaDao;
 import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
+import cz.mendelu.seminar.swi2.bodycare.exceptions.BodycareServiceException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class ObjednavkaServiceImpl implements ObjednavkaService {
     private ObjednavkaDao objednavkaDao;
 
     @Override
-    public void createObjednavka(Objednavka objednavka) {
+    public void create(Objednavka objednavka) {
         objednavkaDao.save(objednavka);
     }
 
@@ -52,12 +53,12 @@ public class ObjednavkaServiceImpl implements ObjednavkaService {
     @Override
     public List<Objednavka> getAllObjednavkaByZakaznik(Zakaznik zakaznik) {
         if (zakaznik == null) {
-            throw new NullPointerException("Zakaznik is null.");
+            throw new BodycareServiceException("Zakaznik is null.");
         }
 
         List<Objednavka> objednavkas = objednavkaDao.findAll();
         if (objednavkas.isEmpty() || objednavkas == null) {
-            throw new NullPointerException("List of Objednavkas is empty or null.");
+            throw new BodycareServiceException("No Objednavkas in database.");
         }
         
         List<Objednavka> result = new ArrayList<>();

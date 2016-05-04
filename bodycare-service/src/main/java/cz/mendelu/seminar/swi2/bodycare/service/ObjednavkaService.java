@@ -18,7 +18,7 @@ import java.util.List;
  */
 public interface ObjednavkaService {
 
-    void createObjednavka(Objednavka objednavka);
+    void create(Objednavka objednavka);
 
     Objednavka findById(int id);
 

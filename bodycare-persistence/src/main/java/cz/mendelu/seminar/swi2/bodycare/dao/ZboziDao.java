@@ -13,6 +13,8 @@ public interface ZboziDao {
 
     /**
      * Finds Zbozi by given ID (primary key)
+     * @param int id
+     * @return Zbozi
      */
     Zbozi findById(int id);
 
@@ -25,6 +27,20 @@ public interface ZboziDao {
      * Deletes given entity from database
      */
     void delete(Zbozi zbozi);
+    
+    /**
+     * Finds Zbozi by given name
+     * @param String nazev
+     * @return List
+     */
+    List<Zbozi> findByNazev(String nazev);
+    
+    /**
+     * Finds Zbozi by given brand
+     * @param String znacka
+     * @return List
+     */
+    List<Zbozi> findByZnacka(String znacka);
 
     /**
      * Returns all existing Zbozi entities in database

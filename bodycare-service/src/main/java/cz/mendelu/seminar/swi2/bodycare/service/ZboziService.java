@@ -5,7 +5,7 @@
  */
 package cz.mendelu.seminar.swi2.bodycare.service;
 
-import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
+import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 
 import java.util.List;
 
@@ -13,13 +13,17 @@ import java.util.List;
  *
  * @author XSTRATI6
  */
-public interface ZakaznikService {
+public interface ZboziService {
 
-    void create(Zakaznik zakaznik);
+    void create(Zbozi zbozi);
 
-    Zakaznik findById(int id);
+    Zbozi findById(int id);
 
-    List<Zakaznik> findAll();
+    List<Zbozi> findByNazev(String nazev);
 
-    void delete(Zakaznik zakaznik);
+    List<Zbozi> findByZnacka(String znacka);
+
+    List<Zbozi> findAll();
+
+    void delete(Zbozi zbozi);
 }

@@ -7,6 +7,7 @@ package cz.mendelu.seminar.swi2.bodycare.service;
 
 import cz.mendelu.seminar.swi2.bodycare.dao.ZakaznikDao;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import javax.inject.Inject;
@@ -15,13 +16,14 @@ import javax.inject.Inject;
  *
  * @author XSTRATI6
  */
+@Service
 public class ZakaznikServiceImpl implements ZakaznikService {
 
     @Inject
     private ZakaznikDao zakaznikDao;
 
     @Override
-    public void createSklad(Zakaznik zakaznik) {
+    public void create(Zakaznik zakaznik) {
         zakaznikDao.save(zakaznik);
     }
 
