@@ -58,7 +58,7 @@ public class ZboziDaoImpl implements ZboziDao {
     @Override
     public List<Zbozi> findByNazev(String nazev) {
         try {
-            return entityManager.createQuery("SELECT * FROM zbozi WHERE nazev = " + nazev, Zbozi.class).getResultList();
+            return entityManager.createQuery("SELECT p FROM Zbozi p WHERE nazev LIKE '" + nazev + "'", Zbozi.class).getResultList();
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }
@@ -67,7 +67,7 @@ public class ZboziDaoImpl implements ZboziDao {
     @Override
     public List<Zbozi> findByZnacka(String znacka) {
         try {
-            return entityManager.createQuery("SELECT * FROM zbozi WHERE znacka = " + znacka, Zbozi.class).getResultList();
+            return entityManager.createQuery("SELECT p FROM Zbozi p WHERE znacka LIKE '" + znacka + "'", Zbozi.class).getResultList();
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }
@@ -78,7 +78,7 @@ public class ZboziDaoImpl implements ZboziDao {
     @Override
     public List<Zbozi> findAll() {
         try {
-            return entityManager.createQuery("SELECT * FROM zbozi", Zbozi.class).getResultList();
+            return entityManager.createQuery("SELECT p FROM Zbozi p", Zbozi.class).getResultList();
         } catch (Exception e) {
             throw new DaoLayerException(e.getMessage());
         }

@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.testng.annotations.Test;
 import org.junit.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -75,8 +76,8 @@ public class ZboziDaoImplTest extends AbstractTestNGSpringContextTests {
     @Test
     public void testFindByNazev() {
         String znacka = testZbozi.getNazev();
-        Zbozi result = zboziDao.findByNazev(znacka);
-        assertEquals(testZbozi.getNazev(), result.getNazev());
+        List<Zbozi> result = zboziDao.findByNazev(znacka);
+        assertNotEquals(0, result.size());
     }
     
     /**
@@ -85,8 +86,8 @@ public class ZboziDaoImplTest extends AbstractTestNGSpringContextTests {
     @Test
     public void testFindByZnacka() {
         String znacka = testZbozi.getZnacka();
-        Zbozi result = zboziDao.findByZnacka(znacka);
-        assertEquals(testZbozi.getZnacka(), result.getZnacka());
+        List<Zbozi> result = zboziDao.findByZnacka(znacka);
+        assertNotEquals(0, result.size());
     }
 
     /**
