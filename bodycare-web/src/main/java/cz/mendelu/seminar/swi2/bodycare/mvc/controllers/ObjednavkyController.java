@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 package cz.mendelu.seminar.swi2.bodycare.mvc.controllers;
+
 /*
-import cz.fi.muni.pa165.seminar.pkmnleague.dto.ObjednavkaCreateDTO;
+import cz.mendelu.seminar.swi2.bodycare.dto.ObjednavkaCreateDTO;
 import cz.fi.muni.pa165.seminar.pkmnleague.dto.ObjednavkaDTO;
 import cz.fi.muni.pa165.seminar.pkmnleague.dto.ObjednavkaEditDTO;
 import cz.fi.muni.pa165.seminar.pkmnleague.exceptions.ObjednavkaLeagueServiceException;
 import cz.fi.muni.pa165.seminar.pkmnleague.facade.ObjednavkaFacade;
 import cz.fi.muni.pa165.seminar.pkmnleague.facade.TrainerFacade;*/
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,7 @@ import java.util.List;
 public class ObjednavkyController {
 
     final static Logger log = LoggerFactory.getLogger(ObjednavkyController.class);
-/*
+
     @ModelAttribute("objednavka")
     public ObjednavkaCreateDTO getObjednavka() {
         return new ObjednavkaCreateDTO();
@@ -46,7 +48,7 @@ public class ObjednavkyController {
     public ObjednavkaEditDTO getObjednavkaEdited() {
         return new ObjednavkaEditDTO();
     }
-*/
+
     @Autowired
     ObjednavkaFacade objednavkaFacade;
 
