@@ -21,20 +21,28 @@ public class ZboziDTO {
     
     private String znacka;        
         
-   public int getId(){
-       return this.id;
-   }
-   public int getCena(){
-       return this.cena;
-   }
-   public int getDan(){
-       return this.dan;
-   }   
+    public int getId(){
+        return id;
+    }
+    public int getCena(){
+        return cena;
+    }
+    public int getDan(){
+        return dan;
+    }   
+
+    public String getNazev(){
+        return nazev;
+    }  
+    public String getZnacka(){
+        return znacka;
+    }
    
-   public String getNazev(){
-       return this.nazev;
-   }  
-   public String getZnacka(){
-       return this.znacka;
-   }
+    @Override
+    public boolean equals(Object obj) {
+    
+        //TODO?
+        
+        return true;
+    }
 }

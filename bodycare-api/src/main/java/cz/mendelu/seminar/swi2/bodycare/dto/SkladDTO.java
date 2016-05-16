@@ -5,10 +5,40 @@
  */
 package cz.mendelu.seminar.swi2.bodycare.dto;
 
+import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
+import java.util.Set;
+
 /**
  *
  * @author TJ
  */
 public class SkladDTO {
     
+    
+    private int id;
+    
+    private String nazev;
+    
+    private Set<Zbozi> zbozi;
+    
+    
+    public int getId(){
+        return id;
+    }
+    
+    public String getNazev(){
+        return nazev;
+    }
+    
+    public Set<Zbozi> getZbozi(){
+        return zbozi;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+    
+        //TODO?
+        
+        return true;
+    }
 }

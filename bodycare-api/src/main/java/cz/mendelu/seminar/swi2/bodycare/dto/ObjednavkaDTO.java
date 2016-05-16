@@ -31,5 +31,13 @@ public class ObjednavkaDTO {
     
     public ZakaznikDTO getZakaznik(){
         return this.zakaznik;
+    }    
+    
+    @Override
+    public boolean equals(Object obj) {
+    
+        //TODO?
+        
+        return true;
     }
 }
