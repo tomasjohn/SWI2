@@ -1,6 +1,7 @@
 package cz.mendelu.seminar.swi2.bodycare.dao;
 
 import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
+import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 
 import java.util.List;
 

@@ -25,8 +25,6 @@ public interface ObjednavkaService {
     List<Objednavka> findAll();
     
     void delete(Objednavka objednavka);
-    
-    void addZbozi(Zbozi zbozi);
 
     List<Objednavka> getAllObjednavkaByZakaznik(Zakaznik zakaznik);
 

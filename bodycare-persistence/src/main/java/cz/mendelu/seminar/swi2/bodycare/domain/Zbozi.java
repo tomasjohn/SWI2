@@ -25,7 +25,7 @@ public class Zbozi {
     @Column()
     private String znacka;
 
-    public Zbozi(int cena, int dan, String nazev,String znacka) {
+    public Zbozi(int cena, int dan, String nazev, String znacka) {
         this.cena = cena;
         this.dan = dan;
         this.nazev = nazev;

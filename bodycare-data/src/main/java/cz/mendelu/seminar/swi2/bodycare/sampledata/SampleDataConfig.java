@@ -1,4 +1,4 @@
-package cz.mendelu.seminar.swi2.bodycare.bodycare.sampledata;
+package cz.mendelu.seminar.swi2.bodycare.sampledata;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;

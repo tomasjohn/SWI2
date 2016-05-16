@@ -47,10 +47,6 @@ public class ObjednavkaServiceImpl implements ObjednavkaService {
     }
 
     @Override
-    public void addZbozi(Zbozi zbozi) {
-    }
-
-    @Override
     public List<Objednavka> getAllObjednavkaByZakaznik(Zakaznik zakaznik) {
         if (zakaznik == null) {
             throw new BodycareServiceException("Zakaznik is null.");

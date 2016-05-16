@@ -6,6 +6,7 @@
 package cz.mendelu.seminar.swi2.bodycare.service;
 
 import cz.mendelu.seminar.swi2.bodycare.domain.Sklad;
+import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 
 import java.util.List;
 
