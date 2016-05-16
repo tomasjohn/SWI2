@@ -5,11 +5,11 @@
  */
 package cz.mendelu.seminar.swi2.bodycare.mvc.controllers;
 /*
-import cz.fi.muni.pa165.seminar.pkmnleague.dto.PokemonCreateDTO;
-import cz.fi.muni.pa165.seminar.pkmnleague.dto.PokemonDTO;
-import cz.fi.muni.pa165.seminar.pkmnleague.dto.PokemonEditDTO;
-import cz.fi.muni.pa165.seminar.pkmnleague.exceptions.PokemonLeagueServiceException;
-import cz.fi.muni.pa165.seminar.pkmnleague.facade.PokemonFacade;
+import cz.fi.muni.pa165.seminar.pkmnleague.dto.ObjednavkaCreateDTO;
+import cz.fi.muni.pa165.seminar.pkmnleague.dto.ObjednavkaDTO;
+import cz.fi.muni.pa165.seminar.pkmnleague.dto.ObjednavkaEditDTO;
+import cz.fi.muni.pa165.seminar.pkmnleague.exceptions.ObjednavkaLeagueServiceException;
+import cz.fi.muni.pa165.seminar.pkmnleague.facade.ObjednavkaFacade;
 import cz.fi.muni.pa165.seminar.pkmnleague.facade.TrainerFacade;*/
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,125 +34,125 @@ import java.util.List;
 @Controller
 @RequestMapping("/objednavka")
 public class ObjednavkyController {
-/*
-    final static Logger log = LoggerFactory.getLogger(PokemonController.class);
 
-    @ModelAttribute("pokemon")
-    public PokemonCreateDTO getPokemon() {
-        return new PokemonCreateDTO();
+    final static Logger log = LoggerFactory.getLogger(ObjednavkyController.class);
+/*
+    @ModelAttribute("objednavka")
+    public ObjednavkaCreateDTO getObjednavka() {
+        return new ObjednavkaCreateDTO();
     }
     
-    @ModelAttribute("pokemonEdited")
-    public PokemonEditDTO getPokemonEdited() {
-        return new PokemonEditDTO();
+    @ModelAttribute("objednavkaEdited")
+    public ObjednavkaEditDTO getObjednavkaEdited() {
+        return new ObjednavkaEditDTO();
     }
-
+*/
     @Autowired
-    PokemonFacade pokemonFacade;
+    ObjednavkaFacade objednavkaFacade;
 
     @Autowired
     private TrainerFacade trainerFacade;
 
     //*
-     /* Lists all pokemon of logged trainer.
+     /* Lists all objednavka of logged trainer.
      /*
      /* @param model
      /* @return
      //
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String pokemons(Model model, Principal principal) {
-        log.info("Pokemons = {}", pokemonFacade.getAllPokemons());
+    public String objednavkas(Model model, Principal principal) {
+        log.info("Objednavkas = {}", objednavkaFacade.getAllObjednavkas());
 
         String trainerName = principal.getName();
 
-        List<PokemonDTO> pokemonDTOs = pokemonFacade.getAllPokemons();
-        List<PokemonDTO> result = new ArrayList<>();
-        for (PokemonDTO p : pokemonDTOs) {
+        List<ObjednavkaDTO> objednavkaDTOs = objednavkaFacade.getAllObjednavkas();
+        List<ObjednavkaDTO> result = new ArrayList<>();
+        for (ObjednavkaDTO p : objednavkaDTOs) {
             if (p.getTrainer().getEmail().equals(trainerName)) {
                 result.add(p);
             }
         }
 
-        model.addAttribute("pokemons", result);
-        return "pokemon/list";
+        model.addAttribute("objednavkas", result);
+        return "objednavka/list";
     }
 
     @RequestMapping(value = "/level-up/{id}", method = RequestMethod.GET)
     public String levelUp(@PathVariable int id, RedirectAttributes redirectAttributes, Principal principal) {
-        if (!trainerFacade.getTrainerWithEmail(principal.getName()).equals(pokemonFacade.getPokemonWithId(id).getTrainer())) {
+        if (!trainerFacade.getTrainerWithEmail(principal.getName()).equals(objednavkaFacade.getObjednavkaWithId(id).getTrainer())) {
             redirectAttributes.addFlashAttribute("alert_danger", "You can't modify Pokémon you don't own!");
-            return "redirect:/pokemon/list";
+            return "redirect:/objednavka/list";
         }
 
         try {
-            pokemonFacade.levelUpPokemonWithId(id);
-        } catch (PokemonLeagueServiceException ex) {
+            objednavkaFacade.levelUpObjednavkaWithId(id);
+        } catch (ObjednavkaLeagueServiceException ex) {
             redirectAttributes.addFlashAttribute("alert_warning", "Pokémon can't have level bigger than 100!");
-            return "redirect:/pokemon/list";
+            return "redirect:/objednavka/list";
         }
 
-        redirectAttributes.addFlashAttribute("alert_info", "Pokemon was successfully leveled up!");
-        return "redirect:/pokemon/list";
+        redirectAttributes.addFlashAttribute("alert_info", "Objednavka was successfully leveled up!");
+        return "redirect:/objednavka/list";
     }
 
   //
-    / * Runs a new page with a form for new pokemons.
+    / * Runs a new page with a form for new objednavkas.
     / *
      /* @param model
      /* @return
      /
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(Model model) {
-        log.debug("Create new pokemon");
-        model.addAttribute("createPokemon", new PokemonCreateDTO());
-        return "pokemon/create";
+        log.debug("Create new objednavka");
+        model.addAttribute("createObjednavka", new ObjednavkaCreateDTO());
+        return "objednavka/create";
     }
 
     
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String edit(Model model,@PathVariable int id){
-        log.debug("Edit existing pokemon");
-        PokemonEditDTO pok=new PokemonEditDTO();
+        log.debug("Edit existing objednavka");
+        ObjednavkaEditDTO pok=new ObjednavkaEditDTO();
         
-        PokemonDTO existPok=pokemonFacade.getPokemonWithId(id);
+        ObjednavkaDTO existPok=objednavkaFacade.getObjednavkaWithId(id);
         pok.setId(id);
         pok.setNickname(existPok.getNickname());
-        model.addAttribute("editPokemon", pok);
-        return "pokemon/edit";
+        model.addAttribute("editObjednavka", pok);
+        return "objednavka/edit";
     }
     
     
     @RequestMapping(value = "edit", method = RequestMethod.POST)
-    public String edit(@Valid @ModelAttribute("pokemonEdited") PokemonEditDTO pokemon, BindingResult bindingResult,
+    public String edit(@Valid @ModelAttribute("objednavkaEdited") ObjednavkaEditDTO objednavka, BindingResult bindingResult,
                          RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder, Principal principal) {
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("alert_failure", "Some data were not filled!");
-            return "redirect:" + uriBuilder.path("/pokemon/edit").build();
+            return "redirect:" + uriBuilder.path("/objednavka/edit").build();
         }
         
-        pokemonFacade.changeNickName(pokemon.getNickname(), pokemon.getId());
+        objednavkaFacade.changeNickName(objednavka.getNickname(), objednavka.getId());
 
-        redirectAttributes.addFlashAttribute("alert_success", "Pokemon was successfully edited.");
+        redirectAttributes.addFlashAttribute("alert_success", "Objednavka was successfully edited.");
 
-        return "redirect:" + uriBuilder.path("/pokemon/list").build();
+        return "redirect:" + uriBuilder.path("/objednavka/list").build();
 
     }
     
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String create(@Valid @ModelAttribute("pokemon") PokemonCreateDTO pokemon, BindingResult bindingResult,
+    public String create(@Valid @ModelAttribute("objednavka") ObjednavkaCreateDTO objednavka, BindingResult bindingResult,
                          RedirectAttributes redirectAttributes, UriComponentsBuilder uriBuilder, Principal principal) {
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("alert_failure", "Some data were not filled!");
-            return "redirect:" + uriBuilder.path("/pokemon/create").build();
+            return "redirect:" + uriBuilder.path("/objednavka/create").build();
         }
-        pokemon.setTrainer(trainerFacade.getTrainerWithEmail(principal.getName()));
-        pokemonFacade.createPokemon(pokemon);
+        objednavka.setTrainer(trainerFacade.getTrainerWithEmail(principal.getName()));
+        objednavkaFacade.createObjednavka(objednavka);
 
-        redirectAttributes.addFlashAttribute("alert_success", "Pokemon was successfully created.");
+        redirectAttributes.addFlashAttribute("alert_success", "Objednavka was successfully created.");
 
-        return "redirect:" + uriBuilder.path("/pokemon/list").build();
+        return "redirect:" + uriBuilder.path("/objednavka/list").build();
 
     }
     
