@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.mendelu.seminar.swi2.bodycare.mvc;
+package cz.mendelu.seminar.swi2.bodycare.mvc.config;
 
 /**
  *
  * @author James
  */
-public class jkkhj {
+public class MvcConfig {
     
 }
