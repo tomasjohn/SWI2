@@ -10,7 +10,7 @@ import cz.fi.muni.pa165.seminar.pkmnleague.dto.PokemonCreateDTO;
 import cz.fi.muni.pa165.seminar.pkmnleague.dto.PokemonDTO;
 import cz.fi.muni.pa165.seminar.pkmnleague.dto.PokemonEditDTO;
 */
-import cz.mendelu.seminar.swi2.bodycare.BodycareServiceException;
+import cz.mendelu.seminar.swi2.bodycare.exceptions.BodycareServiceException;
 
 import cz.mendelu.seminar.swi2.bodycare.service.SkladService;
 
