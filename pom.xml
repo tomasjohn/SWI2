@@ -43,5 +43,6 @@
     <modules>
         <module>bodycare-persistence</module>
         <module>bodycare-service</module>
+        <module>bodycare-web</module>
     </modules>
 </project>
