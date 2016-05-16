@@ -45,5 +45,6 @@
         <module>bodycare-service</module>
         <module>bodycare-web</module>
         <module>bodycare-data</module>
+        <module>bodycare-api</module>
     </modules>
 </project>
