@@ -35,9 +35,6 @@ public class ObjednavkaDTO {
     
     @Override
     public boolean equals(Object obj) {
-    
-        //TODO?
-        
         return true;
     }
 }
