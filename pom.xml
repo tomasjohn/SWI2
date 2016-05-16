@@ -44,5 +44,6 @@
         <module>bodycare-data</module>
         <module>bodycare-api</module>
     <module>bodycare-web</module>
+    <module>mavenproject1</module>
   </modules>
 </project>

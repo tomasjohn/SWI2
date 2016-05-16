@@ -35,7 +35,7 @@ public class ObjednavkyController {
     final static Logger log = LoggerFactory.getLogger(ObjednavkyController.class);
 
     @Autowired
-    private ObjednavkaService objednavkaService;
+    ObjednavkaService objednavkaService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String objednavkas(Model model, Principal principal) {

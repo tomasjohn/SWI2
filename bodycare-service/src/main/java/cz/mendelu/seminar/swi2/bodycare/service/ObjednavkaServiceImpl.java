@@ -28,43 +28,43 @@ public class ObjednavkaServiceImpl implements ObjednavkaService {
 
     @Override
     public void create(Objednavka objednavka) {
-        objednavkaDao.save(objednavka);
+	objednavkaDao.save(objednavka);
     }
 
     @Override
     public Objednavka findById(int id) {
-        return objednavkaDao.findById(id);
+	return objednavkaDao.findById(id);
     }
 
     @Override
     public List<Objednavka> findAll() {
-        return objednavkaDao.findAll();
+	return objednavkaDao.findAll();
     }
 
     @Override
     public void delete(Objednavka objednavka) {
-        objednavkaDao.delete(objednavka);
+	objednavkaDao.delete(objednavka);
     }
 
     @Override
     public List<Objednavka> getAllObjednavkaByZakaznik(Zakaznik zakaznik) {
-        if (zakaznik == null) {
-            throw new BodycareServiceException("Zakaznik is null.");
-        }
+	if (zakaznik == null) {
+	    throw new BodycareServiceException("Zakaznik is null.");
+	}
 
-        List<Objednavka> objednavkas = objednavkaDao.findAll();
-        if (objednavkas.isEmpty() || objednavkas == null) {
-            throw new BodycareServiceException("No Objednavkas in database.");
-        }
-        
-        List<Objednavka> result = new ArrayList<>();
-        for (Objednavka o : objednavkas) {
-            if (o.getZakaznik().equals(zakaznik)) {
-                result.add(o);
-            }
-        }
+	List<Objednavka> objednavkas = objednavkaDao.findAll();
+	if (objednavkas.isEmpty() || objednavkas == null) {
+	    throw new BodycareServiceException("No Objednavkas in database.");
+	}
 
-        return result;
+	List<Objednavka> result = new ArrayList<>();
+	for (Objednavka o : objednavkas) {
+	    if (o.getZakaznik().equals(zakaznik)) {
+		result.add(o);
+	    }
+	}
+
+	return result;
     }
 
-} 
+}
