@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cz.mendelu.seminar.swi2.bodycare.webapp.app.tags;
+package cz.mendelu.seminar.swi2.bodycare.bodycare.sampledata;
 
 /**
  *
  * @author James
  */
-public class xcycax {
+public class SampleData {
     
 }
