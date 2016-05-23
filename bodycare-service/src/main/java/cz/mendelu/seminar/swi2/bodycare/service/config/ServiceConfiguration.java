@@ -7,15 +7,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+@EnableWebMvc
 @Configuration
 @Import(EmbeddedDerbyDatabase.class)
-@ComponentScan(basePackages = "cz.mendelu.seminar.swi2.bodycare.service.")
+@ComponentScan(basePackages = "cz.mendelu.seminar.swi2.bodycare.service")
 public class ServiceConfiguration {
 
     @Bean
     public Mapper dozer() {
-        DozerBeanMapper dozer = new DozerBeanMapper();
-        return dozer;
+	DozerBeanMapper dozer = new DozerBeanMapper();
+	return dozer;
     }
 }

@@ -7,8 +7,7 @@ package cz.mendelu.seminar.swi2.bodycare.service;
 
 import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
-import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
-
+import cz.mendelu.seminar.swi2.bodycare.dto.ObjednavkaDTO;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ public interface ObjednavkaService {
     Objednavka findById(int id);
 
     List<Objednavka> findAll();
-    
+
     void delete(Objednavka objednavka);
 
     List<Objednavka> getAllObjednavkaByZakaznik(Zakaznik zakaznik);

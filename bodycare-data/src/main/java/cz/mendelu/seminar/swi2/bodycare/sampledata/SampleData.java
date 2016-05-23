@@ -1,6 +1,9 @@
 package cz.mendelu.seminar.swi2.bodycare.sampledata;
 
-import cz.mendelu.seminar.swi2.bodycare.domain.*;
+import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
+import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
+import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
+import cz.mendelu.seminar.swi2.bodycare.domain.Sklad;
 import cz.mendelu.seminar.swi2.bodycare.service.ObjednavkaService;
 import cz.mendelu.seminar.swi2.bodycare.service.SkladService;
 import cz.mendelu.seminar.swi2.bodycare.service.ZakaznikService;

@@ -8,7 +8,6 @@ package cz.mendelu.seminar.swi2.bodycare.service;
 import cz.mendelu.seminar.swi2.bodycare.dao.ObjednavkaDao;
 import cz.mendelu.seminar.swi2.bodycare.domain.Objednavka;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zakaznik;
-import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 import cz.mendelu.seminar.swi2.bodycare.exceptions.BodycareServiceException;
 import org.springframework.stereotype.Service;
 
@@ -58,11 +57,9 @@ public class ObjednavkaServiceImpl implements ObjednavkaService {
 	}
 
 	List<Objednavka> result = new ArrayList<>();
-	for (Objednavka o : objednavkas) {
-	    if (o.getZakaznik().equals(zakaznik)) {
-		result.add(o);
-	    }
-	}
+	objednavkas.stream().filter((o) -> (o.getZakaznik().equals(zakaznik))).forEach((o) -> {
+	    result.add(o);
+	});
 
 	return result;
     }

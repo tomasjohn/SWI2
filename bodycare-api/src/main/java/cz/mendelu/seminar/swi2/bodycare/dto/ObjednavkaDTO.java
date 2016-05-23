@@ -6,7 +6,6 @@
 package cz.mendelu.seminar.swi2.bodycare.dto;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 
-import java.util.Objects;
 import java.util.List;
 
 /**

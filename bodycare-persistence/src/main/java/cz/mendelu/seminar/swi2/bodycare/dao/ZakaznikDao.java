@@ -13,6 +13,8 @@ public interface ZakaznikDao {
 
     /**
      * Finds Zakaznik by given ID (primary key)
+     * @param id
+     * @return 
      */
     Zakaznik findById(int id);
 
