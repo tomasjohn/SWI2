@@ -5,7 +5,7 @@
  */
 package cz.mendelu.seminar.swi2.bodycare.mvc.controllers;
 
-import cz.mendelu.seminar.swi2.bodycare.facade.ObjednavkaFacade;
+import cz.mendelu.seminar.swi2.bodycare.service.facade.ObjednavkaFacadeImpl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ public class ObjednavkaController {
     final static Logger log = LoggerFactory.getLogger(ObjednavkaController.class);
 
     @Autowired
-    public ObjednavkaFacade objednavkaFacade;
+    public ObjednavkaFacadeImpl objednavkaFacade;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String objednavkas(Model model, Principal principal) {

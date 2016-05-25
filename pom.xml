@@ -38,6 +38,18 @@
                 <version>2.0.2-beta</version>
                 <scope>test</scope>
             </dependency>
+            <!-- http://mvnrepository.com/artifact/net.sf.dozer/dozer -->
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>5.5.1</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer-spring</artifactId>
+                <version>5.5.1</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
