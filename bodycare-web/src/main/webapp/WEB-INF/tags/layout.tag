@@ -32,10 +32,10 @@
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 		    <ul class="nav navbar-nav">
-			<li><a href="${pageContext.request.contextPath}/objednavka/list">Objednávky</a></li>
+			<li><a href="${pageContext.request.contextPath}/objednavky/list">Objednávky</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav">
-			<li><a href="${pageContext.request.contextPath}/sklad/list">Sklady</a></li>
+			<li><a href="${pageContext.request.contextPath}/sklady/list">Sklady</a></li>
 		    </ul>
 		</div>
 	    </div>

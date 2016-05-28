@@ -7,6 +7,7 @@ package cz.mendelu.seminar.swi2.bodycare.dto;
 import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -25,13 +26,19 @@ public class ObjednavkaDTO {
     }
  
     public List<Zbozi> getZbozi(){
-        return this.seznamZbozi;
+        return seznamZbozi;
     }    
     
     public ZakaznikDTO getZakaznik(){
-        return this.zakaznik;
+        return zakaznik;
     }    
     
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.zakaznik);
+        return hash;
+    }
     @Override
     public boolean equals(Object obj) {
         return true;
