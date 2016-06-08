@@ -5,8 +5,6 @@
  */
 package cz.mendelu.seminar.swi2.bodycare.mvc.controllers;
 
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import cz.mendelu.seminar.swi2.bodycare.dto.SkladDTO;
+import cz.mendelu.seminar.swi2.bodycare.facade.SkladFacade;
 
 import java.security.Principal;
 import org.springframework.web.bind.annotation.ModelAttribute;
- 
+
 /**
  * @author xjanca
  */
@@ -27,15 +26,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @RequestMapping("/sklady")
 public class SkladController {
 
-   //final static Logger log = LoggerFactory.getLogger(SkladController.class);
+    final static Logger log = LoggerFactory.getLogger(SkladController.class);
 
-   /* @Autowired
+    @Autowired
     private SkladFacade skladFacade;
-    
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String objednavky(Model model, Principal principal) {
-	//log.info("Objednavkas = {}", objednavkaFacade.getAllObjednavkas());
-	//model.addAttribute("sklads", skladFacade.getAllSklads());
+	log.info("Sklads = {}", skladFacade.getAllSklads());
+	model.addAttribute("sklads", skladFacade.getAllSklads());
 	return "sklady/list";
-    }*/
+    }
 }

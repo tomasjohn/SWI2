@@ -13,11 +13,9 @@ public class Sklad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull
     @Column(nullable = false)
     private String nazev;
 
-    @NotNull
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Zbozi> zbozi = new HashSet<>();
 

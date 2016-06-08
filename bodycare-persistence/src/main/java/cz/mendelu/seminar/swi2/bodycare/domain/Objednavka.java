@@ -15,11 +15,9 @@ public class Objednavka {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 	
-    @NotNull
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Zbozi> zbozi = new HashSet<>();
 	
-    @NotNull
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ZAKAZNIK_ID")
     private Zakaznik zakaznik;
