@@ -1,12 +1,8 @@
 package cz.mendelu.seminar.swi2.bodycare.domain;
 
+import java.util.ArrayList;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class Objednavka {
@@ -16,7 +12,7 @@ public class Objednavka {
     private int id;
 	
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Zbozi> zbozi = new HashSet<>();
+    private List<Zbozi> zbozi = new ArrayList<>();
 	
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ZAKAZNIK_ID")
@@ -42,8 +38,8 @@ public class Objednavka {
         this.zakaznik = zakaznik;
     }		
 
-    public Set<Zbozi> getZbozi() {
-        return Collections.unmodifiableSet(zbozi);
+    public List<Zbozi> getZbozi() {
+        return zbozi;
     }
 
     public void addZbozi(Zbozi zbozi) {

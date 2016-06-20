@@ -5,8 +5,7 @@
  */
 package cz.mendelu.seminar.swi2.bodycare.dto;
 
-import cz.mendelu.seminar.swi2.bodycare.domain.Zbozi;
-import java.util.Set;
+import java.util.List;
 
 /**
  *
@@ -19,7 +18,7 @@ public class SkladDTO {
     
     private String nazev;
     
-    private Set<Zbozi> zbozi;
+    private List<ZboziDTO> zbozi;
     
     
     public int getId(){
@@ -30,8 +29,20 @@ public class SkladDTO {
         return nazev;
     }
     
-    public Set<Zbozi> getZbozi(){
+    public List<ZboziDTO> getZbozi(){
         return zbozi;
+    }
+
+    public void setId(int id) {
+	this.id = id;
+    }
+
+    public void setNazev(String nazev) {
+	this.nazev = nazev;
+    }
+
+    public void setZbozi(List<ZboziDTO> zbozi) {
+	this.zbozi = zbozi;
     }
     
     @Override

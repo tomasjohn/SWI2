@@ -1,10 +1,8 @@
 package cz.mendelu.seminar.swi2.bodycare.domain;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Sklad {
@@ -17,7 +15,7 @@ public class Sklad {
     private String nazev;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Zbozi> zbozi = new HashSet<>();
+    private List<Zbozi> zbozi = new ArrayList<>();
 
     public Sklad(String nazev) {
 	this.nazev = nazev;
@@ -38,8 +36,8 @@ public class Sklad {
 	this.nazev = nazev;
     }
 
-    public Set<Zbozi> getZbozi() {
-	return Collections.unmodifiableSet(zbozi);
+    public List<Zbozi> getZbozi() {
+	return zbozi;
     }
 
     public void addZbozi(Zbozi zbozi) {

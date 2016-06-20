@@ -32,9 +32,15 @@ public class SkladController {
     private SkladFacade skladFacade;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String objednavky(Model model, Principal principal) {
+    public String sklady(Model model, Principal principal) {
 	log.info("Sklads = {}", skladFacade.getAllSklads());
 	model.addAttribute("sklads", skladFacade.getAllSklads());
 	return "sklady/list";
+    }
+
+    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+    public String sklad(Model model, @PathVariable int id) {
+	model.addAttribute("sklad", skladFacade.getSkladWithId(id));
+	return "sklady/detail";
     }
 }

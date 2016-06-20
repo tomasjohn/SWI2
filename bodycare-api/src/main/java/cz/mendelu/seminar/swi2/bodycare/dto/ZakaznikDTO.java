@@ -34,6 +34,22 @@ public class ZakaznikDTO {
     public int getId(){
         return id;
     }    
+
+    public void setId(int id) {
+	this.id = id;
+    }
+
+    public void setSleva(int sleva) {
+	this.sleva = sleva;
+    }
+
+    public void setJmeno(String jmeno) {
+	this.jmeno = jmeno;
+    }
+
+    public void setAdresa(String adresa) {
+	this.adresa = adresa;
+    }
     
     @Override
     public boolean equals(Object obj) {

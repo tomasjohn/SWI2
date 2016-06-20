@@ -30,23 +30,16 @@ public class ObjednavkaController {
     @Autowired
     public ObjednavkaFacade objednavkaFacade;
 
-    /**
-     * Lists all gyms.
-     *
-     * @param model
-     * @return
-     */
-
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String objednavky(Model model, Principal principal) {
 	log.info("Objednavkas = {}", objednavkaFacade.getAllObjednavkas());
 	model.addAttribute("objednavkas", objednavkaFacade.getAllObjednavkas());
 	return "objednavky/list";
     }
-/*
+    
     @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
     public String objednavka(Model model, @PathVariable int id) {
 	model.addAttribute("objednavka", objednavkaFacade.getObjednavkaWithId(id));
-	return "objednavka/detail";
-    }*/
+	return "objednavky/detail";
+    }
 }

@@ -6,22 +6,35 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<my:layout title="Seznam skladů">
+<my:layout title="Objednávka ${objednavka.id}">
     <jsp:attribute name="body">
+	<table class="table table-bordered">
+	    <tr>
+		<th>Zákazník</th>
+		<th>Adresa</th>
+		<th>Sleva</th>
+	    </tr>
+	    <tr>
+		<td>${objednavka.zakaznik.jmeno}</td>
+		<td>${objednavka.zakaznik.adresa}</td>
+		<td>${objednavka.zakaznik.sleva}</td>
+	    </tr>
+	</table>
 	<table class="table table-bordered">
 	    <tr>
 		<th>Id</th>
 		<th>Název</th>
+		<th>Značka</th>
+		<th>Daň</th>
+		<th>Cena</th>
 	    </tr>
-	    <c:forEach items="${sklads}" var="sklad">
+	    <c:forEach items="${objednavka.zbozi}" var="z">
 		<tr>
-		    <td><c:out value="${sklad.id}"/></td>
-		    <td><c:out value="${sklad.nazev}"/></td>
-		    <td class="text-center">
-			<a href="${pageContext.request.contextPath}/sklady/detail/${sklad.id}">
-			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			</a>
-		    </td>
+		    <td><c:out value="${z.id}"/></td>
+		    <td><c:out value="${z.nazev}"/></td>
+		    <td><c:out value="${z.znacka}"/></td>
+		    <td><c:out value="${z.dan}"/></td>
+		    <td><c:out value="${z.cena}"/></td>
 		</tr>
 	    </c:forEach>
 	</table>

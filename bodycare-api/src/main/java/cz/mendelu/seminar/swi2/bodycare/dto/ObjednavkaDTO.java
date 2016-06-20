@@ -17,7 +17,7 @@ public class ObjednavkaDTO {
     
     private int id;
     
-    private List<Zbozi> seznamZbozi;
+    private List<ZboziDTO> zbozi;
     
     private ZakaznikDTO zakaznik;    
    
@@ -25,13 +25,25 @@ public class ObjednavkaDTO {
         return id;
     }
  
-    public List<Zbozi> getZbozi(){
-        return seznamZbozi;
+    public List<ZboziDTO> getZbozi(){
+        return zbozi;
     }    
     
     public ZakaznikDTO getZakaznik(){
         return zakaznik;
-    }    
+    } 
+
+    public void setId(int id) {
+	this.id = id;
+    }
+
+    public void setZbozi(List<ZboziDTO> zbozi) {
+	this.zbozi = zbozi;
+    }
+
+    public void setZakaznik(ZakaznikDTO zakaznik) {
+	this.zakaznik = zakaznik;
+    }
     
     @Override
     public int hashCode() {
